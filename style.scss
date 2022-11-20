@@ -15,7 +15,7 @@ body {
         inset: 0;
         z-index: -1;
         pointer-events: none;
-        background: url("bg.jpg") no-repeat center;
+        background: url("images/bg.jpg") no-repeat center;
         background-size: cover;
         animation: backgroundZoomAnimate 20s forwards;
     }
@@ -142,8 +142,8 @@ body {
                 box-shadow: 0 4px 30px rgba(43, 98, 169, 0.5);
             }
 
-            &.reddit {
-                background: linear-gradient(45deg, red, orange);
+            &.steam {
+                background: linear-gradient(45deg, navy, blue);
                 box-shadow: 0 4px 30px rgba(43, 98, 169, 0.5);
             }
 
@@ -159,57 +159,142 @@ body {
         }
     }
 
-    &_actions {
-        display: flex;
+    .collapsible {
+        max-width: 800px;
+        max-height: 800px;
+        overflow: hidden;
+        font-weight: bold;
+        transition: all .2s ease;
+        border-radius: 10px;
+    }
+    
+    .collapsible label {
+        position: relative;
+        font-size: 2rem;
+        text-align: center;
+        color: white;
         align-items: center;
-        justify-content: center;
-        gap: 2rem;
-
-        @media screen and (max-width: 576px) {
-            flex-direction: column;
-            gap: 1.5rem;
+        background: linear-gradient(45deg, hotpink, aqua, lime);
+        display: block;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        cursor: pointer;
+        padding: 15px 15px;
+        transition: all 0.2s ease;
+        @media screen and (max-width: 1300px) {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border-radius: 10px;
         }
 
-        &>a {
-            font-weight: bold;
-            font-size: 22px;
-            padding: 15px 0;
-            min-width: 250px;
-            border-radius: 50px;
-            text-align: center;
-            color: white;
-            cursor: pointer;
-            transition: all .2s;
-
-            @media screen and (max-width: 768px) {
-                min-width: 170px;
-            }
-
-            @media screen and (max-width: 576px){
-                min-width: inherit;
-                width: 100%;
-                max-width: 350px;
-            }
-
-            @media screen and (min-width: 576px) {
-                &:hover {
-                    transform: translateY(-5px);
-                }
-
-                &.blue {
-                    background: linear-gradient(45deg, navy,blue);
-                    box-shadow: 0 4px 30px rgba(43, 98, 169, 0.5);
-                }
-
-                &.green {
-                    background: linear-gradient(45deg, rgb(0, 100, 17), rgb(0, 171, 0));
-                    box-shadow: 0 4px 30px rgba(43, 98, 169, 0.5);
-                }
+        @media screen and (min-width: 1300px) {
+            &:hover {
+                transform: scale(1.2) translateY(-5px)
             }
         }
-
-
     }
 
+    .collapsible input {
+        size: 0%;
+    }
+
+    &_promos {
+        max-height: 0px;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.4s ease;
+
+        a {
+            display: inline-flex;
+            width: 100px;
+            height: 100px;
+            margin: 15px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            top: -100%;
+            flex-shrink: 0;
+            opacity: 1;
+            transition: all .2s ease;
+    
+            &.op1-vol-0 img {
+                margin: auto;
+                width: 125px;
+                height: 125px;
+                border-radius: 5%;
+                object-fit: cover;
+                display: block;
+                transition: all 0.2s ease;
+                @media screen and (max-width: 768px) {
+                    width: 75px;
+                    height: 75px;
+                    margin: 10px;
+                }
+        
+                @media screen and (min-width: 768px) {
+                    &:hover {
+                        border-radius: 5%;
+                        border-style: ridge;
+                    }
+                }
+            }
+    
+            &.op1-vol-1 img {
+                margin: auto;
+                width: 125px;
+                height: 125px;
+                border-radius: 5%;
+                object-fit: cover;
+                display: block;
+                transition: all 0.2s ease;
+                @media screen and (max-width: 768px) {
+                    width: 75px;
+                    height: 75px;
+                    margin: 10px;
+                }
+        
+                @media screen and (min-width: 768px) {
+                    &:hover {
+                        border-radius: 5%;
+                        border-style: ridge;                    }
+                }
+            }
+            
+            &.syntakt-vol-1 img {
+                margin: auto;
+                width: 125px;
+                height: 125px;
+                border-radius: 5%;
+                object-fit: cover;
+                display: block;
+                transition: all 0.2s ease;
+                @media screen and (max-width: 768px) {
+                    width: 75px;
+                    height: 75px;
+                    margin: 10px;
+                }
+        
+                @media screen and (min-width: 768px) {
+                    &:hover {
+                        border-radius: 5%;
+                        border-style: ridge;                    }
+                }
+            }
+        }
+    }
+
+    .collapsible input:checked ~ &_promos {
+        max-height: 800px;
+        max-width: 800px;
+        padding-bottom: 25px;
+        opacity: 1;
+        top: 0;
+    }
 
 }

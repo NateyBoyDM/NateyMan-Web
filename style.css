@@ -14,7 +14,7 @@ body::before {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: url("bg.jpg") no-repeat center;
+  background: url("images/bg.jpg") no-repeat center;
   background-size: cover;
   -webkit-animation: backgroundZoomAnimate 20s forwards;
           animation: backgroundZoomAnimate 20s forwards;
@@ -143,8 +143,8 @@ body::before {
   background: linear-gradient(45deg, green, lime);
   box-shadow: 0 4px 30px rgba(43, 98, 169, 0.5);
 }
-.profile-card_social a.reddit {
-  background: linear-gradient(45deg, red, orange);
+.profile-card_social a.steam {
+  background: linear-gradient(45deg, navy, blue);
   box-shadow: 0 4px 30px rgba(43, 98, 169, 0.5);
 }
 .profile-card_social a.github {
@@ -155,51 +155,141 @@ body::before {
   background: linear-gradient(45deg, pink, hotpink);
   box-shadow: 0 4px 30px rgba(43, 98, 169, 0.5);
 }
-.profile-card_actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-}
-@media screen and (max-width: 576px) {
-  .profile-card_actions {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-}
-.profile-card_actions > a {
+.profile-card .collapsible {
+  max-width: 800px;
+  max-height: 800px;
+  overflow: hidden;
   font-weight: bold;
-  font-size: 22px;
-  padding: 15px 0;
-  min-width: 250px;
-  border-radius: 50px;
+  transition: all 0.2s ease;
+  border-radius: 10px;
+}
+.profile-card .collapsible label {
+  position: relative;
+  font-size: 2rem;
   text-align: center;
   color: white;
+  align-items: center;
+  background: linear-gradient(45deg, hotpink, aqua, lime);
+  display: block;
+  margin-bottom: 30px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.2s;
+  padding: 15px 15px;
+  transition: all 0.2s ease;
+}
+@media screen and (max-width: 1300px) {
+  .profile-card .collapsible label {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 10px;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .profile-card .collapsible label:hover {
+    transform: scale(1.2) translateY(-5px);
+  }
+}
+.profile-card .collapsible input {
+  size: 0%;
+}
+.profile-card_promos {
+  max-height: 0px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+.profile-card_promos a {
+  display: inline-flex;
+  width: 100px;
+  height: 100px;
+  margin: 15px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative;
+  top: -100%;
+  flex-shrink: 0;
+  opacity: 1;
+  transition: all 0.2s ease;
+}
+.profile-card_promos a.op1-vol-0 img {
+  margin: auto;
+  width: 125px;
+  height: 125px;
+  border-radius: 5%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  transition: all 0.2s ease;
 }
 @media screen and (max-width: 768px) {
-  .profile-card_actions > a {
-    min-width: 170px;
+  .profile-card_promos a.op1-vol-0 img {
+    width: 75px;
+    height: 75px;
+    margin: 10px;
   }
 }
-@media screen and (max-width: 576px) {
-  .profile-card_actions > a {
-    min-width: inherit;
-    width: 100%;
-    max-width: 350px;
+@media screen and (min-width: 768px) {
+  .profile-card_promos a.op1-vol-0 img:hover {
+    border-radius: 5%;
+    border-style: ridge;
   }
 }
-@media screen and (min-width: 576px) {
-  .profile-card_actions > a:hover {
-    transform: translateY(-5px);
+.profile-card_promos a.op1-vol-1 img {
+  margin: auto;
+  width: 125px;
+  height: 125px;
+  border-radius: 5%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  transition: all 0.2s ease;
+}
+@media screen and (max-width: 768px) {
+  .profile-card_promos a.op1-vol-1 img {
+    width: 75px;
+    height: 75px;
+    margin: 10px;
   }
-  .profile-card_actions > a.blue {
-    background: linear-gradient(45deg, navy, blue);
-    box-shadow: 0 4px 30px rgba(43, 98, 169, 0.5);
+}
+@media screen and (min-width: 768px) {
+  .profile-card_promos a.op1-vol-1 img:hover {
+    border-radius: 5%;
+    border-style: ridge;
   }
-  .profile-card_actions > a.green {
-    background: linear-gradient(45deg, rgb(0, 100, 17), rgb(0, 171, 0));
-    box-shadow: 0 4px 30px rgba(43, 98, 169, 0.5);
+}
+.profile-card_promos a.syntakt-vol-1 img {
+  margin: auto;
+  width: 125px;
+  height: 125px;
+  border-radius: 5%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  transition: all 0.2s ease;
+}
+@media screen and (max-width: 768px) {
+  .profile-card_promos a.syntakt-vol-1 img {
+    width: 75px;
+    height: 75px;
+    margin: 10px;
   }
+}
+@media screen and (min-width: 768px) {
+  .profile-card_promos a.syntakt-vol-1 img:hover {
+    border-radius: 5%;
+    border-style: ridge;
+  }
+}
+.collapsible input:checked ~ .profile-card_promos {
+  max-height: 800px;
+  max-width: 800px;
+  padding-bottom: 25px;
+  opacity: 1;
+  top: 0;
 }/*# sourceMappingURL=style.css.map */
